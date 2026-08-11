@@ -7,7 +7,7 @@
 using namespace std;
 
 extern "C" [[gnu::visibility("default")]]
-void entry(void* addr, size_t size, const char* path) {
+void entry(void* addr, size_t size, const char* path, bool custom_loaded) {
     LOGI("zygisk library injected, version %s", ZKSU_VERSION);
 
     zygiskd::Init(path);
@@ -17,7 +17,7 @@ void entry(void* addr, size_t size, const char* path) {
         return;
     }
 
-    hook_entry(addr, size);
+    hook_entry(addr, size, custom_loaded);
     send_seccomp_event_if_needed();
 }
 

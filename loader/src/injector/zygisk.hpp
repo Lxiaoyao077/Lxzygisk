@@ -18,7 +18,7 @@ struct mount_info {
     std::string raw_info;
 };
 
-void hook_entry(void *start_addr, size_t block_size);
+void hook_entry(void *start_addr, size_t block_size, bool custom_loaded);
 
 void hookJniNativeMethods(JNIEnv *env, const char *clz, JNINativeMethod *methods, int numMethods);
 
