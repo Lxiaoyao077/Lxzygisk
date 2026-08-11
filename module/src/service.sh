@@ -13,6 +13,19 @@ if [ "$ZYGISK_ENABLED" ]; then
   exit 0
 fi
 
+# ── Boot-loop fail-safe: health witness ───────────────────────────────────────
+# zygisk-init.sh increments a counter on every boot; reaching this point plus
+# a grace window proves the boot was healthy, so the counter resets. A boot
+# loop kills the device before the sleep ends, the counter survives, and the
+# injection kill switch eventually latches (see zygisk-init.sh).
+(
+  sleep 120
+  rm -f "@WORK_DIRECTORY@/boot_fail_count"
+  if [ -f "@WORK_DIRECTORY@/injection_disabled" ]; then
+    log -p w -t "zygisk-sh" "Boot-loop fail-safe is latched; injection stays OFF until @WORK_DIRECTORY@/injection_disabled is removed"
+  fi
+) &
+
 cd "$MODDIR"
 
 if [ "$(which magisk)" ]; then

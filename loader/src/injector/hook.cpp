@@ -440,10 +440,15 @@ void HookContext::restore_zygote_hook(JNIEnv *env) {
 
 // -----------------------------------------------------------------
 
-void hook_entry(void *start_addr, size_t block_size) {
+void hook_entry(void *start_addr, size_t block_size, bool custom_loaded) {
     g_hook = new HookContext(start_addr, block_size);
     g_hook->hook_plt();
-    clean_linker_trace(zygiskd::GetTmpPath().data(), 1, 0, true);
+    // A custom-mapped image never entered bionic's solist. Trying to remove it
+    // would corrupt the linker's load counters and can dereference a record
+    // that does not exist. Path-based dlopen still needs the original cleanup.
+    if (!custom_loaded) {
+        clean_linker_trace(zygiskd::GetTmpPath().data(), 1, 0, true);
+    }
 }
 
 void hookJniNativeMethods(JNIEnv *env, const char *clz, JNINativeMethod *methods, int numMethods) {
