@@ -31,6 +31,12 @@ void spoof_virtual_maps(const char *path, bool clear_write_permission);
 
 void spoof_zygote_fossil(char *search_from, char *search_to, const char *anchor);
 
+/// Rewrite the `TracerPid:` line in a buffer read from /proc/<pid>/status
+/// so detection software cannot observe a non-zero tracer PID after the
+/// injector has detached.  Returns the number of bytes the caller should
+/// report as read (the rewrite is in-place and never grows the buffer).
+size_t sanitize_tracer_pid_in_buffer(char *buf, size_t nbytes);
+
 void send_seccomp_event_if_needed();
 
 std::vector<mount_info> check_zygote_traces(uint32_t info_flags);

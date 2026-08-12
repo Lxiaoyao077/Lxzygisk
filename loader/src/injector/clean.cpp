@@ -1,5 +1,9 @@
 #include <linux/mman.h>
 #include <sys/mman.h>
+#include <unistd.h>
+
+#include <cstring>
+#include <string_view>
 
 #include <lsplt.hpp>
 
@@ -113,4 +117,66 @@ void spoof_zygote_fossil(char *search_from, char *search_to, const char *anchor)
 
     suspicious_fossil.cleanMemory();
     clean_fossil_to_write.writeToMemory();
+}
+
+// ---------------------------------------------------------------------------
+// TracerPid hiding
+//
+// Detection apps read /proc/<pid>/status and look for a non-zero
+// `TracerPid:` line to flag the process as being ptraced.  OnyxZygisk
+// attaches with PTRACE_SEIZE to inject libzygisk.so and detaches as soon
+// as injection is done, but the kernel may briefly expose a non-zero
+// TracerPid during the attach/detach window, and on some GKI 2.0 kernels
+// the field can linger even after detach (see detach_with_gki_workaround
+// in ptracer.cpp).
+//
+// To close the detection gap completely we PLT-hook `read` in the injected
+// zygote and rewrite any `TracerPid:\t<non-zero>` line we see in the read
+// buffer to `TracerPid:\t0`.  This covers every libc-based read of
+// /proc/self/status regardless of which library issued it.
+//
+// The rewrite is in-place: `TracerPid:\t12345` and `TracerPid:\t0` differ
+// in length, so we pad the remainder of the line with spaces and keep the
+// trailing newline.  The total buffer size never changes.
+size_t sanitize_tracer_pid_in_buffer(char *buf, size_t nbytes) {
+    static constexpr std::string_view kNeedle = "TracerPid:";
+    if (buf == nullptr || nbytes == 0) return nbytes;
+
+    for (size_t i = 0; i + kNeedle.size() < nbytes; ++i) {
+        if (std::memcmp(buf + i, kNeedle.data(), kNeedle.size()) != 0) continue;
+
+        // Skip the colon and any whitespace after it.
+        size_t j = i + kNeedle.size();
+        while (j < nbytes && (buf[j] == ' ' || buf[j] == '\t')) ++j;
+
+        // Parse the numeric value.
+        size_t value_start = j;
+        while (j < nbytes && buf[j] >= '0' && buf[j] <= '9') ++j;
+        size_t value_end = j;
+
+        // Only rewrite if the value is non-zero; a zero TracerPid is the
+        // clean state we want to present.
+        bool non_zero = false;
+        for (size_t k = value_start; k < value_end; ++k) {
+            if (buf[k] != '0') { non_zero = true; break; }
+        }
+        if (!non_zero) {
+            i = value_end;  // skip past, keep scanning for another match
+            continue;
+        }
+
+        // Replace the value with '0' and pad the rest of the line with
+        // spaces so the buffer length stays identical.  The line ends at
+        // the next '\n' or the end of the buffer.
+        size_t line_end = j;
+        while (line_end < nbytes && buf[line_end] != '\n') ++line_end;
+
+        // Write "0" then spaces up to line_end.
+        buf[value_start] = '0';
+        for (size_t k = value_start + 1; k < line_end; ++k) buf[k] = ' ';
+
+        LOGV("hid non-zero TracerPid in read buffer at offset %zu", i);
+        i = line_end;
+    }
+    return nbytes;
 }
