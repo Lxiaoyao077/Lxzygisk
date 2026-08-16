@@ -11,7 +11,7 @@ WebUI 基于 **Vue 3 + Vite + TypeScript** 构建，源码在仓库的
 ## 安装后的页面文件
 
 ```
-/data/adb/modules/zygiskksu/webroot/
+/data/adb/modules/neozygisk/webroot/
 ├── index.html     # 入口（规范要求必须存在）
 └── assets/        # Vite 构建产物（js/css，路径相对化）
     ├── index-*.js

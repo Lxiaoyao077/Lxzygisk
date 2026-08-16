@@ -39,7 +39,7 @@ fi
 
 printf '├─ WebUI\n'
 print_row "WebUI" "Open from your root manager or MMRL"
-print_row "Path" "/data/adb/modules/zygiskksu/webroot"
+print_row "Path" "/data/adb/modules/neozygisk/webroot"
 printf '╰─ No network port required\n\n'
 
 if [ -z "$MMRL" ] && { [ -n "$KSU" ] || [ -n "$APATCH" ]; }; then

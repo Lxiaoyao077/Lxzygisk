@@ -405,7 +405,7 @@ fn swap_staged_module(name: &str, module_dir: &Path) -> Result<PathBuf> {
 
     let active_dir = Path::new(constants::PATH_MODULES_DIR).join(name);
     let backup_dir =
-        Path::new(constants::PATH_MODULES_UPDATE_DIR).join(format!(".zygiskksu-hotplug-backup-{name}"));
+        Path::new(constants::PATH_MODULES_UPDATE_DIR).join(format!(".lxzy-hotplug-backup-{name}"));
     if backup_dir.exists() {
         fs::remove_dir_all(&backup_dir).with_context(|| {
             format!(

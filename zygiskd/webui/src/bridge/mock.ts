@@ -60,7 +60,7 @@ export function devResponse(cmd: string): string {
       "daemon=1",
       "hotplug=1",
       "mount_mode=revert",
-      "workdir=/data/adb/zygiskksu",
+      "workdir=/data/adb/neozygisk",
       "@@monitor",
       "\tmonitor: \t tracing",
       "",

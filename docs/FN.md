@@ -20,10 +20,10 @@ Design goals:
 
 ## On-disk layout
 
-Nodes live under the Lxzygisk work directory (`/data/adb/zygiskksu`):
+Nodes live under the Lxzygisk work directory (`/data/adb/neozygisk`):
 
 ```
-/data/adb/zygiskksu/fn/<node-id>/
+/data/adb/neozygisk/fn/<node-id>/
 ├── fn.prop            # required descriptor (key=value, same syntax as module.prop)
 ├── lib/
 │   ├── arm64-v8a/fn.so   # optional native entry point (Zygisk API compatible)

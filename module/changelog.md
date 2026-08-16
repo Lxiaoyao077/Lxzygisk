@@ -21,16 +21,16 @@
 ### 🔧 Build & fixes
 *   Fix `WORK_DIRECTORY` define mangling through the CMake → ninja pipeline on Windows hosts.
 
-## 🧬 v1.0 - OnyxZygisk: A NeoZygisk Fork 🧬
+## 🧬 v1.0 - Lxzygisk: An OnyxZygisk Fork 🧬
 
-First release of OnyxZygisk, forked from NeoZygisk v2.3 by JingMatrix.
+First release of Lxzygisk, forked from OnyxZygisk (itself a fork of NeoZygisk v2.3 by JingMatrix).
 
 ### 🔄 Rebrand
-*   **Full Rebrand**: Renamed the project from NeoZygisk to OnyxZygisk, including the module name, module ID (`onyxzygisk`), working directory (`/data/adb/onyxzygisk`), release artifacts, and all user-facing strings.
+*   **Full Rebrand**: Renamed the project from OnyxZygisk to Lxzygisk, including the module name, module ID (`neozygisk`), working directory (`/data/adb/neozygisk`), release artifacts, and all user-facing strings.
 
 ### ✨ New Features
 *   **FN (Functional Node) Module Subsystem**: Added support for FN modules — declarative, scoped, hot-swappable extension units. See [docs/FN.md](../docs/FN.md) for the specification.
-*   **OnyxZygisk Manager**: Added the official companion manager app (Android, Jetpack Compose + Material 3) in the `app/` directory.
+*   **Lxzygisk Manager**: Added the official companion manager app (Android, Jetpack Compose + Material 3) in the `app/` directory.
 
 ## 🚀 v2.3 - Robustness & Improved Root Support 🚀
 

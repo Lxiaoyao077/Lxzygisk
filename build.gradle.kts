@@ -13,7 +13,7 @@ fun String.execute(currentWorkingDir: File = file("./")): String =
 val gitCommitCount = "git rev-list HEAD --count".execute().toInt()
 val gitCommitHash = "git rev-parse --verify --short HEAD".execute()
 
-val moduleId by extra("zygiskksu")
+val moduleId by extra("neozygisk")
 val moduleName by extra("Lxzygisk")
 // Hot-plug restart-loop hotfix. Keep this build distinguishable from the
 // earlier v1.0.5-368 archives: root-manager/WebView caches and repeated local
@@ -26,7 +26,7 @@ val minKsuVersion by extra(10940)
 val minKsudVersion by extra(11425)
 val maxKsuVersion by extra(30000)
 val minMagiskVersion by extra(26402)
-val workDirectory by extra("/data/adb/zygiskksu")
+val workDirectory by extra("/data/adb/neozygisk")
 
 val androidMinSdkVersion by extra(26)
 val androidTargetSdkVersion by extra(36)

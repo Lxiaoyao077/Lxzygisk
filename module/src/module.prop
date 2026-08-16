@@ -4,3 +4,4 @@ version=${versionName}
 versionCode=${versionCode}
 author=Lxyao, Sai, Matsuzaka Yuki
 description=🧬 ptrace-powered Zygisk runtime · Root-agnostic · WebUI · FN modules · Hot-plug · Mount isolation
+updateJson=https://raw.githubusercontent.com/Lxiaoyao077/Lxzygisk/master/module/update.json

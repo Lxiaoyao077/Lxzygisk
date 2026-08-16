@@ -42,7 +42,7 @@
     "hotplugToggle": "ホットプラグ済み（取り外し可）"
   },
   "fn": {
-    "hint": "FN ノードは /data/adb/zygiskksu/fn にあります",
+    "hint": "FN ノードは /data/adb/neozygisk/fn にあります",
     "empty": "FN ノードがありません",
     "trigger": "トリガー",
     "scope": "スコープ",
@@ -68,7 +68,7 @@
     "language": "言語",
     "languageAuto": "自動",
     "about": "このモジュールについて",
-    "aboutText": "Lxzygisk — ptrace ベースの Zygisk 実装で、FN（Functional Node）モジュールに対応しています。NeoZygisk のフォークです。",
+    "aboutText": "Lxzygisk — ptrace ベースの Zygisk 実装で、FN（Functional Node）モジュールに対応しています。OnyxZygisk のフォークです。",
     "hotplug": "ホットプラグ（Zygisk Host）",
     "hotplugHint": "オフの間は再起動後にのみ有効",
     "mountMode": "マウントモード",
