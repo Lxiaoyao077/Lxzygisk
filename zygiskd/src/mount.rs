@@ -102,20 +102,25 @@ impl MountNamespaceManager {
             0 => {
                 // --- Child Process ---
                 drop(pipe_reader); // Close the side of the pipe we don't use.
-                switch_mount_namespace(pid).unwrap();
+                // Never panic in the child: the daemon builds with
+                // `panic = "abort"`, so an unwrap here would kill the child
+                // before it writes the handshake byte and the parent would
+                // block on the pipe forever. Report failure through the pipe
+                // instead and let the parent clean up.
+                let setup_ok = switch_mount_namespace(pid).is_ok()
+                    && if namespace_type == MountNamespace::Clean {
+                        unsafe {
+                            rustix_thread::unshare_unsafe(rustix_thread::UnshareFlags::NEWNS)
+                        }
+                        .is_ok()
+                            && Self::clean_mount_namespace().is_ok()
+                    } else {
+                        true
+                    };
 
-                if namespace_type == MountNamespace::Clean {
-                    // Create a new, private mount namespace for ourselves.
-                    unsafe {
-                        rustix_thread::unshare_unsafe(rustix_thread::UnshareFlags::NEWNS).unwrap();
-                    }
-                    // Unmount all root and module mounts.
-                    Self::clean_mount_namespace().unwrap();
-                }
-
-                // Signal to the parent that setup is complete.
-                let sig: [u8; 1] = [0];
-                rustix::io::write(pipe_writer, &sig).unwrap();
+                // Signal the outcome to the parent.
+                let sig: [u8; 1] = [if setup_ok { 0 } else { 1 }];
+                let _ = rustix::io::write(pipe_writer, &sig);
 
                 // Wait indefinitely. The parent will kill us after it has the FD.
                 loop {
@@ -127,8 +132,15 @@ impl MountNamespaceManager {
                 drop(pipe_writer);
 
                 // Wait for the signal from the child.
-                let mut buf: [u8; 1] = [0];
+                let mut buf: [u8; 1] = [1];
                 rustix::io::read(pipe_reader, &mut buf)?;
+                if buf[0] != 0 {
+                    unsafe {
+                        libc::kill(child_pid, libc::SIGKILL);
+                        libc::waitpid(child_pid, std::ptr::null_mut(), 0);
+                    }
+                    bail!("child failed to set up mount namespace");
+                }
                 trace!("Child {} finished setting up mount namespace.", child_pid);
 
                 let ns_path = format!("/proc/{}/ns/mnt", child_pid);

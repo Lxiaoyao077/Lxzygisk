@@ -3,8 +3,8 @@ import { exec } from "../bridge";
 import type { ExecResult, FnNodeInfo, ModuleInfo, MonitorRow, StateData } from "../types";
 
 const WORKDIR = "/data/adb/neozygisk";
-const MODDIR = "/data/adb/modules/neozygisk";
-const STAGED_MODDIR = "/data/adb/modules_update/neozygisk";
+const MODDIR = "/data/adb/modules/zygiskksu";
+const STAGED_MODDIR = "/data/adb/modules_update/zygiskksu";
 const MODULE_LOG_PATTERN = [
   "Hot-plug",
   "hot-plug",

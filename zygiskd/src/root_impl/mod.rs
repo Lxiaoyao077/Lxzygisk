@@ -118,6 +118,19 @@ pub fn uid_is_manager(uid: i32) -> bool {
     }
 }
 
+/// Disables the root solution's own kernel-side unmount, if it has one.
+///
+/// The daemon unmounts module traces itself; leaving the root solution's
+/// parallel unmount enabled lets the two race (see `set_kernel_umount`).
+pub fn disable_self_umount() {
+    match get() {
+        RootImpl::KernelSU => {
+            kernelsu::set_kernel_umount(false);
+        }
+        _ => {}
+    }
+}
+
 // --- WebUI-facing pass-throughs (APatch) ---
 // These used to back the loopback HTTP API and are kept (with their tests) as
 // the canonical programmatic interface for APatch policy management; a future

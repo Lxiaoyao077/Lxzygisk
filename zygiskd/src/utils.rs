@@ -169,6 +169,12 @@ impl UnixStreamExt for UnixStream {
 
     fn read_string(&mut self) -> Result<String> {
         let len = self.read_usize()?;
+        // The peer writes only short ids and paths (module ids, FN node ids,
+        // socket paths). Bounding the allocation here keeps a buggy or hostile
+        // peer from making the daemon (panic=abort) OOM on a bogus length.
+        if len > 4096 {
+            anyhow::bail!("string length {} exceeds limit", len);
+        }
         let mut buf = vec![0u8; len];
         self.read_exact(&mut buf)?;
         Ok(String::from_utf8(buf)?)
@@ -214,12 +220,17 @@ pub fn unix_listener_from_path(path: &str) -> Result<UnixListener> {
 /// Sends a datagram packet to a Unix socket path.
 pub fn unix_datagram_sendto(path: &str, buf: &[u8]) -> Result<()> {
     set_socket_create_context(&get_current_attr()?)?;
-    let addr = SocketAddrUnix::new(path.as_bytes())?;
-    let socket = socket(AddressFamily::UNIX, SocketType::DGRAM, None)?;
-    connect(&socket, &addr)?;
-    sendto(socket, buf, SendFlags::empty(), &addr)?;
+    let result = (|| {
+        let addr = SocketAddrUnix::new(path.as_bytes())?;
+        let socket = socket(AddressFamily::UNIX, SocketType::DGRAM, None)?;
+        connect(&socket, &addr)?;
+        sendto(socket, buf, SendFlags::empty(), &addr)?;
+        Ok(())
+    })();
+    // Restore the original context even on failure, or every socket this
+    // thread creates afterwards inherits the temporary one.
     set_socket_create_context("u:r:zygote:s0")?;
-    Ok(())
+    result
 }
 
 /// Checks if a Unix socket is still alive and connected using `poll`.

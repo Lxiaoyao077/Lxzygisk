@@ -13,7 +13,7 @@ fun String.execute(currentWorkingDir: File = file("./")): String =
 val gitCommitCount = "git rev-list HEAD --count".execute().toInt()
 val gitCommitHash = "git rev-parse --verify --short HEAD".execute()
 
-val moduleId by extra("neozygisk")
+val moduleId by extra("zygiskksu")
 val moduleName by extra("Lxzygisk")
 // Hot-plug restart-loop hotfix. Keep this build distinguishable from the
 // earlier v1.0.5-368 archives: root-manager/WebView caches and repeated local
