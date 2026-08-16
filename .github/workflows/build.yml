@@ -43,15 +43,17 @@ jobs:
         with:
           tool: cargo-ndk
 
+      - name: Install pnpm
+        run: npm install -g pnpm@11.17.0
+
+      # setup-node's `cache: pnpm` locates pnpm to resolve the store path, so
+      # pnpm must already be on PATH when this step runs.
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: pnpm
           cache-dependency-path: zygiskd/webui/pnpm-lock.yaml
-
-      - name: Install pnpm
-        run: npm install -g pnpm@11.17.0
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -81,7 +83,11 @@ jobs:
         with:
           name: Lxzygisk-module
 
+      # module/update.json points at releases/latest/download/Lxzygisk.zip,
+      # so the published asset must carry that exact name.
       - name: Create GitHub Release
-        run: gh release create "$GITHUB_REF_NAME" Lxzygisk-*.zip --title "Lxzygisk $GITHUB_REF_NAME"
+        run: |
+          mv Lxzygisk-*.zip Lxzygisk.zip
+          gh release create "$GITHUB_REF_NAME" Lxzygisk.zip --title "Lxzygisk $GITHUB_REF_NAME"
         env:
           GH_TOKEN: ${{ github.token }}
