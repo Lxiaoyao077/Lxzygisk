@@ -1,4 +1,4 @@
-// OnyxZygisk WebUI — ESLint 9+ flat config (create-vue style).
+// Lxzygisk WebUI — ESLint 9+ flat config (create-vue style).
 import pluginVue from "eslint-plugin-vue";
 import vueTsEslintConfig from "@vue/eslint-config-typescript";
 import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";

@@ -71,7 +71,7 @@ static DAEMON_SOCKET_PATH: OnceLock<String> = OnceLock::new();
 
 /// The main function for the zygiskd daemon.
 pub fn main(tmp_path: Option<&str>) -> Result<()> {
-    info!("Welcome to OnyxZygisk ({}) !", ZKSU_VERSION);
+    info!("Welcome to Lxzygisk ({}) !", ZKSU_VERSION);
 
     initialize_globals(tmp_path)?;
     // Cross-boot circuit breaker: resolve a hot-plug restart guard left over
@@ -405,7 +405,7 @@ fn swap_staged_module(name: &str, module_dir: &Path) -> Result<PathBuf> {
 
     let active_dir = Path::new(constants::PATH_MODULES_DIR).join(name);
     let backup_dir =
-        Path::new(constants::PATH_MODULES_UPDATE_DIR).join(format!(".onyx-hotplug-backup-{name}"));
+        Path::new(constants::PATH_MODULES_UPDATE_DIR).join(format!(".zygiskksu-hotplug-backup-{name}"));
     if backup_dir.exists() {
         fs::remove_dir_all(&backup_dir).with_context(|| {
             format!(
@@ -808,7 +808,7 @@ fn ensure_module_daemon_started(name: &str, module_dir: &Path) {
 /// if *this* daemon process started after that already happened in the
 /// current zygote lifetime, the message has already fired and will not fire
 /// again this boot, so a purely event-driven flag would stay false forever.
-/// That is the common case here — flashing a new OnyxZygisk build does not
+/// That is the common case here — flashing a new Lxzygisk build does not
 /// restart the already-running daemon, only a device reboot does, and this
 /// feature's whole point is working without one.
 ///
@@ -1146,7 +1146,7 @@ fn handle_hotplug_restart_guard() {
     // This instance was already specialized with the bad module before it
     // could report SystemServerStarted.  Terminate it once; the following
     // instance is served from the now-unplugged module list and the guard is
-    // gone, so this cannot form another Onyx-triggered loop.
+    // gone, so this cannot form another Lxzygisk-triggered loop.
     let _ = unsafe { libc::kill(current_pid, libc::SIGKILL) };
 }
 

@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · Shared runtime bootstrap
+# Lxzygisk · Shared runtime bootstrap
 #
 # Sourced by both normal post-fs-data startup and KernelSU LKM late-load.
 # The caller must define MODDIR before entering this file.

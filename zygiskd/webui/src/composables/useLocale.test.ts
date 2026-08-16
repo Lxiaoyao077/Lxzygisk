@@ -45,14 +45,14 @@ describe("useLocale", () => {
 
   it("defaults to the auto preference (device language) when nothing is stored", () => {
     expect(AUTO_LOCALE).toBe("auto");
-    expect(localStorage.getItem("/OnyxZygisk/language")).toBe("auto");
+    expect(localStorage.getItem("/Lxzygisk/language")).toBe("auto");
   });
 
   it("switches to a fixed locale and persists the choice", () => {
     const { t, setLocale } = useLocale();
     setLocale("zh_CN");
     expect(t("navbar.status")).toBe("状态");
-    expect(localStorage.getItem("/OnyxZygisk/language")).toBe("zh_CN");
+    expect(localStorage.getItem("/Lxzygisk/language")).toBe("zh_CN");
   });
 
   it("keeps the auto preference even on a Japanese device after switching", () => {

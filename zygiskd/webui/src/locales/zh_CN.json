@@ -42,7 +42,7 @@
     "hotplugToggle": "已热插拔（可拔）"
   },
   "fn": {
-    "hint": "FN 节点位于 /data/adb/onyxzygisk/fn",
+    "hint": "FN 节点位于 /data/adb/zygiskksu/fn",
     "empty": "没有 FN 节点",
     "trigger": "触发",
     "scope": "范围",
@@ -68,7 +68,7 @@
     "language": "语言",
     "languageAuto": "自动",
     "about": "关于",
-    "aboutText": "OnyxZygisk —— 基于 ptrace 的 Zygisk 实现，支持 FN（Functional Node）模块。fork 自 NeoZygisk。",
+    "aboutText": "Lxzygisk —— 基于 ptrace 的 Zygisk 实现，支持 FN（Functional Node）模块。fork 自 NeoZygisk。",
     "hotplug": "热插拔（Zygisk Host）",
     "hotplugHint": "关闭后模块需重启才生效",
     "mountMode": "挂载模式",

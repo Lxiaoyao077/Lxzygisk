@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · Module action
+# Lxzygisk · Module action
 #
 # Presents the installed metadata and live monitor state as a compact status
 # card. The monitor file intentionally contains both `key=value` metadata and
@@ -19,7 +19,7 @@ print_row() {
   printf '│  %-10s %s\n' "$1" "$2"
 }
 
-printf '\n╭─ 🧬 OnyxZygisk · Runtime Overview\n'
+printf '\n╭─ 🧬 Lxzygisk · Runtime Overview\n'
 printf '├─ Module\n'
 print_row "Name" "$(read_prop name)"
 print_row "Version" "$(read_prop version)"
@@ -39,7 +39,7 @@ fi
 
 printf '├─ WebUI\n'
 print_row "WebUI" "Open from your root manager or MMRL"
-print_row "Path" "/data/adb/modules/onyxzygisk/webroot"
+print_row "Path" "/data/adb/modules/zygiskksu/webroot"
 printf '╰─ No network port required\n\n'
 
 if [ -z "$MMRL" ] && { [ -n "$KSU" ] || [ -n "$APATCH" ]; }; then

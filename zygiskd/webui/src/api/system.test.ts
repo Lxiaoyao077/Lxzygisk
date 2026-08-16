@@ -16,7 +16,7 @@ describe("parseStatus", () => {
     "z64=1",
     "daemon=1",
     "@@monitor",
-    "\tOnyxZygisk\tv1.0",
+    "\tLxzygisk\tv1.0",
     "\tmonitor:\ttracing",
     "",
     "@@modules",

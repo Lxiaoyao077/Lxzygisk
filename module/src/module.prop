@@ -2,5 +2,5 @@ id=${moduleId}
 name=${moduleName}
 version=${versionName}
 versionCode=${versionCode}
-author=Sai, Matsuzaka Yuki
+author=Lxyao, Sai, Matsuzaka Yuki
 description=🧬 ptrace-powered Zygisk runtime · Root-agnostic · WebUI · FN modules · Hot-plug · Mount isolation

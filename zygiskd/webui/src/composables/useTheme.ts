@@ -1,6 +1,6 @@
-/* OnyxZygisk — theme. light / dark / amoled / system, persisted in localStorage. */
+/* Lxzygisk — theme. light / dark / amoled / system, persisted in localStorage. */
 
-const KEY = "/OnyxZygisk/theme";
+const KEY = "/Lxzygisk/theme";
 
 export const THEMES = ["light", "dark", "amoled", "system"] as const;
 

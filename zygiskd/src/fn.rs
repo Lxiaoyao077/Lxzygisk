@@ -1,6 +1,6 @@
 // src/fn.rs
 
-//! FN (Functional Node) module support for the OnyxZygisk daemon.
+//! FN (Functional Node) module support for the Lxzygisk daemon.
 //!
 //! FN nodes are declarative, scoped, hot-swappable units of functionality that
 //! live under `<work-dir>/fn/<node-id>/`. This module scans and validates the

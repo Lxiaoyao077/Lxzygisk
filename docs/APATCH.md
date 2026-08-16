@@ -1,12 +1,12 @@
 # APatch 全面适配
 
-OnyxZygisk 对 [APatch](https://github.com/bmax121/APatch) 做了第一优先级的
+Lxzygisk 对 [APatch](https://github.com/bmax121/APatch) 做了第一优先级的
 适配。APatch 是基于 KernelPatch 的 root 方案：模块挂载（APM）由内核完成，
-root 授权是内核 supercall。以下说明 OnyxZygisk 如何与之对齐。
+root 授权是内核 supercall。以下说明 Lxzygisk 如何与之对齐。
 
 ## 已对齐的上游事实（apd / KernelPatch）
 
-| 事实 | 上游出处 | OnyxZygisk 位置 |
+| 事实 | 上游出处 | Lxzygisk 位置 |
 |---|---|---|
 | apd 二进制位于 `/data/adb/ap/bin/apd`，`apd -V` 输出 `apd <VERSION_CODE>` | `apd/src/defs.rs` | `root_impl/apatch.rs::apd_version` |
 | `package_config` 为 CSV，表头 `pkg,exclude,allow,uid,to_uid,sctx` | `apd/src/package.rs` | `root_impl/apatch.rs::parse_package_config` |
@@ -47,7 +47,7 @@ WebUI 的 APatch 页接受用户输入的**超级键**（仅保存在守护进�
 - `KSTORAGE_WRITE(EXCLUDE_LIST_GROUP)`：同步内核侧"卸载模块"（exclude）列表
 
 超级键的设计理念是"比 root 权限更高"，官方实现也要求每次启动手动传入，
-因此 OnyxZygisk **不会**持久化或自动获取超级键。
+因此 Lxzygisk **不会**持久化或自动获取超级键。
 
 ## 拒绝列表 / 卸载模块 的语义
 

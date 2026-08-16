@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · post-fs-data stage
+# Lxzygisk · post-fs-data stage
 #
 # Starts the runtime and mirrors the lifecycle scripts of classic Zygisk
 # modules when Magisk's built-in Zygisk is not driving them.

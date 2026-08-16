@@ -15,7 +15,7 @@ static inline bool stopped_with(int status, int sig, int event) {
 }
 
 /**
- * @brief Defines the main application class for the OnyxZygisk init monitor.
+ * @brief Defines the main application class for the Lxzygisk init monitor.
  *
  * This file contains the primary architectural components of the monitor daemon.
  * The core design is a single-threaded, event-driven application encapsulated

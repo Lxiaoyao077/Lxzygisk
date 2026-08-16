@@ -42,7 +42,7 @@
  *     We then use `ptrace` to execute functions within the target process's context.
  *     - Remotely call `dlopen()` to load our library.
  *     - Remotely call `dlsym()` to find the address of our library's `entry` function.
- *     - Remotely call our `entry` function to initialize OnyxZygisk.
+ *     - Remotely call our `entry` function to initialize Lxzygisk.
  * 5.  **Restore State**: After injection, restore all CPU registers, which allows the original
  *     entry point to be called when the process is fully resumed.
  *
@@ -350,7 +350,7 @@ bool inject_on_main(int pid, const char *lib_path) {
     }
 
     // Remotely call our entry(start_addr, block_size, path) function
-    LOGI("calling the injector's entry function to initialize OnyxZygisk");
+    LOGI("calling the injector's entry function to initialize Lxzygisk");
     std::vector<long> entry_args;
     entry_args.push_back((uintptr_t) start_addr);
     entry_args.push_back(block_size);
@@ -573,7 +573,7 @@ bool trace_zygote(int pid) {
     // 1. Try SEIZE (Modern, robust handling of group stops)
     bool seize_syscall_failed = false;
     if (trace_with_seize(pid, &seize_syscall_failed)) {
-        LOGI("successfully detached from zygote (via SEIZE), OnyxZygisk active");
+        LOGI("successfully detached from zygote (via SEIZE), Lxzygisk active");
         return true;
     }
     int seize_errno = errno;
@@ -592,7 +592,7 @@ bool trace_zygote(int pid) {
         LOGW("PTRACE_SEIZE failed with EIO, attempting fallback to PTRACE_ATTACH");
 
         if (trace_with_attach(pid)) {
-            LOGI("successfully detached from zygote (via ATTACH), OnyxZygisk active");
+            LOGI("successfully detached from zygote (via ATTACH), Lxzygisk active");
             return true;
         }
     } else {

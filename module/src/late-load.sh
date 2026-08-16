@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · KernelSU LKM late-load entry
+# Lxzygisk · KernelSU LKM late-load entry
 #
 # A late-loaded KernelSU appears after post-fs-data has already passed, so this
 # entry invokes the shared bootstrap directly. Later lifecycle stages continue

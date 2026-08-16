@@ -16,7 +16,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "OnyxZygisk"
+rootProject.name = "Lxzygisk"
 include(
     ":loader",
     ":module",

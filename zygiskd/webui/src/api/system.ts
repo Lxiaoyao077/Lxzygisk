@@ -1,10 +1,10 @@
-/* OnyxZygisk — data layer. One shell round-trip fetches full system state. */
+/* Lxzygisk — data layer. One shell round-trip fetches full system state. */
 import { exec } from "../bridge";
 import type { ExecResult, FnNodeInfo, ModuleInfo, MonitorRow, StateData } from "../types";
 
-const WORKDIR = "/data/adb/onyxzygisk";
-const MODDIR = "/data/adb/modules/onyxzygisk";
-const STAGED_MODDIR = "/data/adb/modules_update/onyxzygisk";
+const WORKDIR = "/data/adb/zygiskksu";
+const MODDIR = "/data/adb/modules/zygiskksu";
+const STAGED_MODDIR = "/data/adb/modules_update/zygiskksu";
 const MODULE_LOG_PATTERN = [
   "Hot-plug",
   "hot-plug",
@@ -271,14 +271,14 @@ export async function setModuleHotplug(id: string, enabled: boolean): Promise<vo
   // Apply immediately through the bundled daemon CLI. It performs the staged
   // -> active transaction, runs module lifecycle scripts, then reboots the
   // device once so the module loads at the fresh system_server fork. Both
-  // ABIs are tried, including a staged OnyxZygisk update whose binary may
+  // ABIs are tried, including a staged Lxzygisk update whose binary may
   // not have moved into the active directory yet.
   const apply = [
     'bin=""',
     `for b in '${MODDIR}/bin/zygiskd64' '${MODDIR}/bin/zygiskd32' '${STAGED_MODDIR}/bin/zygiskd64' '${STAGED_MODDIR}/bin/zygiskd32'; do`,
     '  [ -x "$b" ] && { bin="$b"; break; }',
     "done",
-    '[ -n "$bin" ] || { echo "OnyxZygisk daemon binary not found"; exit 127; }',
+    '[ -n "$bin" ] || { echo "Lxzygisk daemon binary not found"; exit 127; }',
     `"$bin" hotplug '${id}' --workdir '${WORKDIR}'`,
   ].join("\n");
   await execChecked(apply, "apply hot-plug module");

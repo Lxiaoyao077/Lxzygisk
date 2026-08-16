@@ -14,7 +14,7 @@ describe("useTheme", () => {
   it("persists the preference", () => {
     setThemePref("amoled");
     expect(getThemePref()).toBe("amoled");
-    expect(localStorage.getItem("/OnyxZygisk/theme")).toBe("amoled");
+    expect(localStorage.getItem("/Lxzygisk/theme")).toBe("amoled");
   });
 
   it("applies the data-theme attribute", () => {

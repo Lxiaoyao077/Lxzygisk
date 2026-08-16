@@ -1,4 +1,4 @@
-/* OnyxZygisk — shared types for the bridge, the shell data protocol and the UI. */
+/* Lxzygisk — shared types for the bridge, the shell data protocol and the UI. */
 
 /** Result of one bridge exec() call (KernelSU / APatch / MMRL normalized). */
 export interface ExecResult {

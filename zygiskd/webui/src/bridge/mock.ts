@@ -1,4 +1,4 @@
-/* OnyxZygisk — PC development fallback data.
+/* Lxzygisk — PC development fallback data.
  *
  * Only used when no bridge is present (plain browser / `npm run dev` / preview):
  * the UI renders with canned data so it can be developed without a rooted device.
@@ -15,7 +15,7 @@ const DATA = {
     moduleDesc3: "A Riru/Zygisk framework",
     fn1Name: "Network Guard",
     fn2Name: "Property Shield",
-    log1: "Welcome to OnyxZygisk (v1.0)",
+    log1: "Welcome to Lxzygisk (v1.0)",
     log4: "Manual trigger of post-fs-data.sh",
   },
   zh_CN: {
@@ -24,7 +24,7 @@ const DATA = {
     moduleDesc3: "A Riru/Zygisk framework",
     fn1Name: "网络守卫",
     fn2Name: "属性护盾",
-    log1: "欢迎使用 OnyxZygisk (v1.0)",
+    log1: "欢迎使用 Lxzygisk (v1.0)",
     log4: "手动触发 post-fs-data.sh",
   },
   ja_JP: {
@@ -33,7 +33,7 @@ const DATA = {
     moduleDesc3: "Riru/Zygisk フレームワーク",
     fn1Name: "ネットワークガード",
     fn2Name: "プロパティシールド",
-    log1: "OnyxZygisk へようこそ (v1.0)",
+    log1: "Lxzygisk へようこそ (v1.0)",
     log4: "post-fs-data.sh の手動実行",
   },
 } as const;
@@ -60,7 +60,7 @@ export function devResponse(cmd: string): string {
       "daemon=1",
       "hotplug=1",
       "mount_mode=revert",
-      "workdir=/data/adb/onyxzygisk",
+      "workdir=/data/adb/zygiskksu",
       "@@monitor",
       "\tmonitor: \t tracing",
       "",

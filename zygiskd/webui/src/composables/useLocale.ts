@@ -1,4 +1,4 @@
-/* OnyxZygisk — i18n. Strings live in src/locales/*.json and are statically
+/* Lxzygisk — i18n. Strings live in src/locales/*.json and are statically
  * imported (bundled), so there is no runtime fetch. The active locale is a
  * reactive ref: swapping it re-renders every component that calls `t()`.
  *
@@ -11,7 +11,7 @@ import en from "../locales/en_US.json";
 import zh from "../locales/zh_CN.json";
 import ja from "../locales/ja_JP.json";
 
-const KEY = "/OnyxZygisk/language";
+const KEY = "/Lxzygisk/language";
 
 /** "auto" = follow the device language. */
 export const AUTO_LOCALE = "auto";

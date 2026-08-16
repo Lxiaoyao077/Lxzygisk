@@ -1,4 +1,4 @@
-/* OnyxZygisk — root manager bridge.
+/* Lxzygisk — root manager bridge.
  *
  * KernelSU / APatch: ksu.exec(cmd, JSON.stringify(opts), cbName) → window[cb](errno, stdout, stderr)
  * MMRL: mmrl.exec(cmd) (promise or callback)

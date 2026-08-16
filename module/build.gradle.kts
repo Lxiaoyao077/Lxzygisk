@@ -115,7 +115,7 @@ androidComponents.onVariants { variant ->
                 "moduleId" to moduleId,
                 "moduleName" to moduleName,
                 // Keep the version line clean; build metadata stays in the
-                // zip file name only (OnyxZygisk-v1.0.5-329-<hash>-release.zip).
+                // zip file name only (Lxzygisk-v1.0.5-329-<hash>-release.zip).
                 "versionName" to verName,
                 "versionCode" to verCode
             )

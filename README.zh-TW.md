@@ -1,15 +1,14 @@
 <div align="center">
 
-<img src="assets/tux.png" alt="OnyxZygisk" width="128">
+<img src="assets/tux.png" alt="Lxzygisk" width="128">
 
-# OnyxZygisk
+# Lxzygisk
 
 **開箱即用的 Zygisk 執行環境 —— 全 Root 方案通用。**
 
 基於 ptrace 的 Zygisk 實作，內建 WebUI、可熱抽換的 FN 模組和進階 DenyList。無需核心模組。
 
-[![Telegram](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-[![Release](https://img.shields.io/github/v/release/OnyxZygisk/OnyxZygisk?label=最新版&color=brightgreen)](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest)
+[![Release](https://img.shields.io/github/v/release/Lxiaoyao077/Lxzygisk?label=最新版&color=brightgreen)](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **繁體中文** · [日本語](README.ja.md)
@@ -18,7 +17,7 @@
 
 ---
 
-## 為什麼選擇 OnyxZygisk？
+## 為什麼選擇 Lxzygisk？
 
 ### Root 方案無關
 
@@ -54,7 +53,7 @@
 
 ### 安裝
 
-從[最新 Release](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest) 下載 zip，在 Root 管理器（APatch / KernelSU / Magisk）中刷入並重新開機。
+從[最新 Release](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest) 下載 zip，在 Root 管理器（APatch / KernelSU / Magisk）中刷入並重新開機。
 
 ### 設定 DenyList
 
@@ -72,8 +71,8 @@
 ## 從原始碼建置
 
 ```sh
-git clone https://github.com/OnyxZygisk/OnyxZygisk.git
-cd OnyxZygisk
+git clone https://github.com/Lxiaoyao077/Lxzygisk.git
+cd Lxzygisk
 ./gradlew :module:zipRelease
 ```
 
@@ -81,17 +80,9 @@ cd OnyxZygisk
 
 ---
 
-## 社群
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-
-加入 Telegram 頻道，取得版本發佈公告、討論與技術支援。
-
----
-
 ## 致謝
 
-OnyxZygisk 基於以下專案建置並受其啟發：
+Lxzygisk 基於以下專案建置並受其啟發：
 
 - **Zygisk API** —— [topjohnwu](https://github.com/topjohnwu) / [Magisk](https://github.com/topjohnwu/Magisk)
 - **Zygisk Next** —— [Dr-TSNG](https://github.com/Dr-TSNG/ZygiskNext)
@@ -100,4 +91,4 @@ OnyxZygisk 基於以下專案建置並受其啟發：
 
 ## 授權條款
 
-[AGPL-3.0](LICENSE)。OnyxZygisk 是 NeoZygisk (GPL-3.0) 的下游，整合了 CSOLoader (AGPL-3.0) 作為行程內自訂模組載入器；依據 GPL-3.0 §13，組合作品以 AGPL-3.0 發佈。上游 GPL-3.0 聲明保留 —— 詳見 [NOTICE.md](NOTICE.md)。
+[AGPL-3.0](LICENSE)。Lxzygisk 是 NeoZygisk (GPL-3.0) 的下游，整合了 CSOLoader (AGPL-3.0) 作為行程內自訂模組載入器；依據 GPL-3.0 §13，組合作品以 AGPL-3.0 發佈。上游 GPL-3.0 聲明保留 —— 詳見 [NOTICE.md](NOTICE.md)。

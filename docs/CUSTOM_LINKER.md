@@ -7,7 +7,7 @@ them in the system linker's `solist`**, so linker-walk detection (an app
 iterating loaded `soinfo` records, or reading `/proc/self/maps` for a
 recognisable library path) finds nothing to flag.
 
-Today OnyxZygisk is **reactive**: the system linker loads the module via
+Today Lxzygisk is **reactive**: the system linker loads the module via
 `android_dlopen_ext` (`common/dl.cpp:DlopenMem`), the module briefly appears in
 `solist`, and `injector/solist.cpp:dropSoPath` unlinks it afterwards. The custom
 loader is **proactive**: the module is mapped, relocated and initialised by our

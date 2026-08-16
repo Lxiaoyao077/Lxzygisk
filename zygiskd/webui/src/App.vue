@@ -151,7 +151,7 @@ onUnmounted(() => {
       <span class="hero__glyph"></span>
     </div>
     <div class="hero__body">
-      <div class="hero__title">OnyxZygisk</div>
+      <div class="hero__title">Lxzygisk</div>
       <!-- Kept mounted and collapsed by CSS: removing it with v-if would drop
            ~40px of the hero instantly and the padding would animate alone. -->
       <div class="hero__extra" :aria-hidden="compact || undefined">

@@ -1,4 +1,4 @@
-// Vite configuration for the OnyxZygisk WebUI.
+// Vite configuration for the Lxzygisk WebUI.
 //
 // The module ships the built `dist/` as the KernelSU `webroot/` directory,
 // which root manager apps (KernelSU / APatch / MMRL) load directly from their

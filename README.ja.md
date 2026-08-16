@@ -1,15 +1,14 @@
 <div align="center">
 
-<img src="assets/tux.png" alt="OnyxZygisk" width="128">
+<img src="assets/tux.png" alt="Lxzygisk" width="128">
 
-# OnyxZygisk
+# Lxzygisk
 
 **あらゆる Root でそのまま動く Zygisk ランタイム。**
 
 ptrace ベースの Zygisk 実装。WebUI 内蔵、ホットスワップ対応の FN モジュール、高度な DenyList を搭載。カーネルモジュール不要。
 
-[![Telegram](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-[![Release](https://img.shields.io/github/v/release/OnyxZygisk/OnyxZygisk?label=最新版&color=brightgreen)](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest)
+[![Release](https://img.shields.io/github/v/release/Lxiaoyao077/Lxzygisk?label=最新版&color=brightgreen)](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · **日本語**
@@ -18,7 +17,7 @@ ptrace ベースの Zygisk 実装。WebUI 内蔵、ホットスワップ対応�
 
 ---
 
-## なぜ OnyxZygisk？
+## なぜ Lxzygisk？
 
 ### Root 方式を問わない
 
@@ -54,7 +53,7 @@ Vue 3 + Vite + TypeScript で構築されたフル機能のコントロールパ
 
 ### インストール
 
-[最新リリース](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest)から zip をダウンロードし、Root マネージャー（APatch / KernelSU / Magisk）でフラッシュして再起動。
+[最新リリース](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest)から zip をダウンロードし、Root マネージャー（APatch / KernelSU / Magisk）でフラッシュして再起動。
 
 ### DenyList の設定
 
@@ -72,8 +71,8 @@ KernelSU Manager、APatch Manager、または MMRL でモジュールページ�
 ## ソースからビルド
 
 ```sh
-git clone https://github.com/OnyxZygisk/OnyxZygisk.git
-cd OnyxZygisk
+git clone https://github.com/Lxiaoyao077/Lxzygisk.git
+cd Lxzygisk
 ./gradlew :module:zipRelease
 ```
 
@@ -81,17 +80,9 @@ cd OnyxZygisk
 
 ---
 
-## コミュニティ
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-
-Telegram チャンネルに参加して、リリース情報・ディスカッション・サポートを受け取りましょう。
-
----
-
 ## クレジット
 
-OnyxZygisk は以下のプロジェクトの上に構築され、そこから着想を得ています：
+Lxzygisk は以下のプロジェクトの上に構築され、そこから着想を得ています：
 
 - **Zygisk API** — [topjohnwu](https://github.com/topjohnwu) / [Magisk](https://github.com/topjohnwu/Magisk)
 - **Zygisk Next** — [Dr-TSNG](https://github.com/Dr-TSNG/ZygiskNext)
@@ -100,4 +91,4 @@ OnyxZygisk は以下のプロジェクトの上に構築され、そこから着
 
 ## ライセンス
 
-[AGPL-3.0](LICENSE)。OnyxZygisk は NeoZygisk (GPL-3.0) の下流であり、CSOLoader (AGPL-3.0) をインプロセスのカスタムモジュールローダーとして統合しています。GPL-3.0 §13 に基づき、結合著作物は AGPL-3.0 で頒布されます。上流の GPL-3.0 通知は保持されています — [NOTICE.md](NOTICE.md) を参照してください。
+[AGPL-3.0](LICENSE)。Lxzygisk は NeoZygisk (GPL-3.0) の下流であり、CSOLoader (AGPL-3.0) をインプロセスのカスタムモジュールローダーとして統合しています。GPL-3.0 §13 に基づき、結合著作物は AGPL-3.0 で頒布されます。上流の GPL-3.0 通知は保持されています — [NOTICE.md](NOTICE.md) を参照してください。

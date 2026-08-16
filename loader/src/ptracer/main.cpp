@@ -22,7 +22,7 @@ const char *const kWorkDirectory = WORK_DIRECTORY;
 
 // The main entry point for the monitoring process.
 void init_monitor() {
-    LOGI("OnyxZygisk %s", ZKSU_VERSION);
+    LOGI("Lxzygisk %s", ZKSU_VERSION);
 
     // Boot-loop fail-safe: zygisk-init.sh latches this flag after several
     // consecutive boots that never proved healthy (service.sh's health
@@ -78,7 +78,7 @@ static int handle_ctl(int argc, char **argv);
 static int handle_version();
 
 /**
- * @brief Main entry point for the OnyxZygisk command-line interface.
+ * @brief Main entry point for the Lxzygisk command-line interface.
  *
  * This function acts as a dispatcher, parsing the first command-line argument
  * to determine the desired mode of operation (e.g., monitor, trace, ctl)
@@ -116,7 +116,7 @@ int main(int argc, char **argv) {
  * @param tool_name The name of the executable, typically argv[0].
  */
 static void print_usage(const char *tool_name) {
-    fprintf(stderr, "OnyxZygisk Tracer %s\n", ZKSU_VERSION);
+    fprintf(stderr, "Lxzygisk Tracer %s\n", ZKSU_VERSION);
     fprintf(stderr,
             "usage: %s monitor | trace <pid> [--restart] | ctl <start|stop|exit> | version\n",
             tool_name);
@@ -212,6 +212,6 @@ static int handle_ctl(int argc, char **argv) {
  * Prints the tool's version number to standard output.
  */
 static int handle_version() {
-    printf("OnyxZygisk Tracer %s\n", ZKSU_VERSION);
+    printf("Lxzygisk Tracer %s\n", ZKSU_VERSION);
     return EXIT_SUCCESS;
 }

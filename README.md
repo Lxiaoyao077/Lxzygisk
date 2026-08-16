@@ -1,15 +1,14 @@
 <div align="center">
 
-<img src="assets/tux.png" alt="OnyxZygisk" width="128">
+<img src="assets/tux.png" alt="Lxzygisk" width="128">
 
-# OnyxZygisk
+# Lxzygisk
 
 **The Zygisk runtime that just works — on every root.**
 
 A ptrace-powered Zygisk implementation with a built-in WebUI, hot-swappable FN modules, and an advanced DenyList. No kernel module required.
 
-[![Telegram](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-[![Release](https://img.shields.io/github/v/release/OnyxZygisk/OnyxZygisk?label=Latest&color=brightgreen)](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest)
+[![Release](https://img.shields.io/github/v/release/Lxiaoyao077/Lxzygisk?label=Latest&color=brightgreen)](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 
 **English** · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-TW.md) · [日本語](README.ja.md)
@@ -18,7 +17,7 @@ A ptrace-powered Zygisk implementation with a built-in WebUI, hot-swappable FN m
 
 ---
 
-## Why OnyxZygisk?
+## Why Lxzygisk?
 
 ### Root-agnostic
 
@@ -54,7 +53,7 @@ Pure ptrace injection — no custom kernel module to build, maintain, or break o
 
 ### Install
 
-Flash the zip from the [latest release](https://github.com/OnyxZygisk/OnyxZygisk/releases/latest) in your root manager (APatch / KernelSU / Magisk) and reboot.
+Flash the zip from the [latest release](https://github.com/Lxiaoyao077/Lxzygisk/releases/latest) in your root manager (APatch / KernelSU / Magisk) and reboot.
 
 ### Configure the DenyList
 
@@ -72,8 +71,8 @@ Open the module page in KernelSU Manager, APatch Manager, or MMRL and tap **WebU
 ## Build from source
 
 ```sh
-git clone https://github.com/OnyxZygisk/OnyxZygisk.git
-cd OnyxZygisk
+git clone https://github.com/Lxiaoyao077/Lxzygisk.git
+cd Lxzygisk
 ./gradlew :module:zipRelease
 ```
 
@@ -81,17 +80,9 @@ The flashable zip is written to `module/build/outputs/release/`.
 
 ---
 
-## Community
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-OnyxZygisk-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/OnyxZygisk)
-
-Join the Telegram channel for release announcements, discussion, and support.
-
----
-
 ## Credits
 
-OnyxZygisk is built on and inspired by:
+Lxzygisk is built on and inspired by:
 
 - **Zygisk API** — [topjohnwu](https://github.com/topjohnwu) / [Magisk](https://github.com/topjohnwu/Magisk)
 - **Zygisk Next** — [Dr-TSNG](https://github.com/Dr-TSNG/ZygiskNext)
@@ -100,4 +91,4 @@ OnyxZygisk is built on and inspired by:
 
 ## License
 
-[AGPL-3.0](LICENSE). OnyxZygisk is a downstream of NeoZygisk (GPL-3.0) and integrates CSOLoader (AGPL-3.0) as its in-process custom module loader; per GPL-3.0 §13 the combined work is conveyed under AGPL-3.0. Upstream GPL-3.0 notices are retained — see [NOTICE.md](NOTICE.md).
+[AGPL-3.0](LICENSE). Lxzygisk is a downstream of NeoZygisk (GPL-3.0) and integrates CSOLoader (AGPL-3.0) as its in-process custom module loader; per GPL-3.0 §13 the combined work is conveyed under AGPL-3.0. Upstream GPL-3.0 notices are retained — see [NOTICE.md](NOTICE.md).

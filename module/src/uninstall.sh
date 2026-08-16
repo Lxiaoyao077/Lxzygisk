@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · Uninstall cleanup
+# Lxzygisk · Uninstall cleanup
 #
 # Removes runtime state and persistent preferences after the module is deleted.
 # ==============================================================================

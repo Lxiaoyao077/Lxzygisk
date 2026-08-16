@@ -1,6 +1,6 @@
 #!/system/bin/sh
 # ==============================================================================
-# OnyxZygisk · late-start service stage
+# Lxzygisk · late-start service stage
 #
 # Mirrors service.sh for classic Zygisk modules when their lifecycle is not
 # already managed by Magisk's built-in Zygisk implementation.

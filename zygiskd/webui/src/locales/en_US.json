@@ -42,7 +42,7 @@
     "hotplugToggle": "Hot-plugged (unplug)"
   },
   "fn": {
-    "hint": "FN nodes in /data/adb/onyxzygisk/fn",
+    "hint": "FN nodes in /data/adb/zygiskksu/fn",
     "empty": "No FN nodes",
     "trigger": "trigger",
     "scope": "scope",
@@ -68,7 +68,7 @@
     "language": "Language",
     "languageAuto": "Auto",
     "about": "About",
-    "aboutText": "OnyxZygisk — a Zygisk implementation via ptrace, with FN (Functional Node) modules. Fork of NeoZygisk.",
+    "aboutText": "Lxzygisk — a Zygisk implementation via ptrace, with FN (Functional Node) modules. Fork of NeoZygisk.",
     "hotplug": "Hot-plug (Zygisk Host)",
     "hotplugHint": "When off, modules take effect only after a reboot",
     "mountMode": "Mount mode",

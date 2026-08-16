@@ -12,9 +12,9 @@ zip -r ../hello-fn.zip fn.prop service.sh
 
 # 方式一：WebUI → FN 模块 → 上传安装
 # 方式二：直接放文件（调试用）：
-mkdir -p /data/adb/onyxzygisk/fn/hello
-cp fn.prop service.sh /data/adb/onyxzygisk/fn/hello/
-chmod 755 /data/adb/onyxzygisk/fn/hello/service.sh
+mkdir -p /data/adb/zygiskksu/fn/hello
+cp fn.prop service.sh /data/adb/zygiskksu/fn/hello/
+chmod 755 /data/adb/zygiskksu/fn/hello/service.sh
 ```
 
 安装后无需重启：`boot`/`post_fs_data` 触发器在守护进程运行期间的后续

@@ -1,4 +1,4 @@
-/* OnyxZygisk — app entry. Set theme first, then mount the single fixed page. */
+/* Lxzygisk — app entry. Set theme first, then mount the single fixed page. */
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./styles/main.css";

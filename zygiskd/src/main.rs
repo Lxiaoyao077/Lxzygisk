@@ -1,6 +1,6 @@
 // src/main.rs
 
-//! Main entry point for the OnyxZygisk daemon and its companion processes.
+//! Main entry point for the Lxzygisk daemon and its companion processes.
 //!
 //! # Zygiskd Architecture Overview
 //!
@@ -111,7 +111,7 @@ fn start() {
             }
         }
         Some("version") => {
-            println!("OnyxZygisk daemon {}", ZKSU_VERSION);
+            println!("Lxzygisk daemon {}", ZKSU_VERSION);
         }
         Some("root") => {
             root_impl::setup();

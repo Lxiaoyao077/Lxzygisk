@@ -1,4 +1,4 @@
-// OnyxZygisk — Vitest setup.
+// Lxzygisk — Vitest setup.
 //
 // jsdom does not implement window.matchMedia, which the theme composable needs
 // to resolve the "system" preference. Stub it so tests can exercise theme logic.

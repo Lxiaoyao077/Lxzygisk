@@ -1,6 +1,6 @@
-# OnyxZygisk WebUI
+# Lxzygisk WebUI
 
-OnyxZygisk 的 WebUI 遵循 **KernelSU 模块 WebUI 规范**：静态页面放在模块的
+Lxzygisk 的 WebUI 遵循 **KernelSU 模块 WebUI 规范**：静态页面放在模块的
 `webroot/` 目录，由根管理应用（KernelSU Manager / APatch Manager / MMRL）的
 WebView 直接读取——**不监听任何网络端口，不依赖 TCP**，守护进程完全不参与
 页面传输。
@@ -11,7 +11,7 @@ WebUI 基于 **Vue 3 + Vite + TypeScript** 构建，源码在仓库的
 ## 安装后的页面文件
 
 ```
-/data/adb/modules/onyxzygisk/webroot/
+/data/adb/modules/zygiskksu/webroot/
 ├── index.html     # 入口（规范要求必须存在）
 └── assets/        # Vite 构建产物（js/css，路径相对化）
     ├── index-*.js
@@ -22,8 +22,8 @@ WebUI 基于 **Vue 3 + Vite + TypeScript** 构建，源码在仓库的
 
 | 宿主 | 入口 |
 |---|---|
-| KernelSU Manager | 模块列表 → OnyxZygisk → WebUI |
-| APatch Manager | 模块列表 → OnyxZygisk → WebUI |
+| KernelSU Manager | 模块列表 → Lxzygisk → WebUI |
+| APatch Manager | 模块列表 → Lxzygisk → WebUI |
 | MMRL | 模块列表 → WebUI |
 
 页面在普通浏览器里打开时会显示引导提示（缺少桥接，走 mock 数据），功能不可用。

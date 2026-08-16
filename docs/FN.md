@@ -1,9 +1,9 @@
 # FN (Functional Node) Modules
 
-FN — **Functional Node** — is OnyxZygisk's own module format, layered on top of the
+FN — **Functional Node** — is Lxzygisk's own module format, layered on top of the
 classic Zygisk module API. A classic Zygisk module is "a .so that gets injected";
 a Functional Node is a **declarative, scoped, hot-swappable unit of functionality**
-that the daemon understands, schedules, and reports on — and that the OnyxZygisk
+that the daemon understands, schedules, and reports on — and that the Lxzygisk
 manager app can present, toggle, and install without a reboot.
 
 Design goals:
@@ -20,10 +20,10 @@ Design goals:
 
 ## On-disk layout
 
-Nodes live under the OnyxZygisk work directory (`/data/adb/onyxzygisk`):
+Nodes live under the Lxzygisk work directory (`/data/adb/zygiskksu`):
 
 ```
-/data/adb/onyxzygisk/fn/<node-id>/
+/data/adb/zygiskksu/fn/<node-id>/
 ├── fn.prop            # required descriptor (key=value, same syntax as module.prop)
 ├── lib/
 │   ├── arm64-v8a/fn.so   # optional native entry point (Zygisk API compatible)

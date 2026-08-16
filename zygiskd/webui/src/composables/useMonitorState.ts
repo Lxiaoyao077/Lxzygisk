@@ -1,4 +1,4 @@
-/* OnyxZygisk — shared system-state loader (status hero + all data sections).
+/* Lxzygisk — shared system-state loader (status hero + all data sections).
  *
  * App.vue provides a single instance under MONITOR_STATE_KEY so the sticky
  * hero and the Status/Modules/FN sections render the same data, refreshed
